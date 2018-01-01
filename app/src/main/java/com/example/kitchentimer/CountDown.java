@@ -29,4 +29,9 @@ final class CountDown extends CountDownTimer {
         _timer.setText(_dataFormat.format(millisUntilFinished));
 
     }
+
+    public void onStop() {
+        cancel();
+        _timer.setText(_dataFormat.format(0));
+    }
 }

@@ -9,6 +9,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView timerView;
     private CountDown countDown;
+    private boolean _start = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,14 +17,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         timerView = (TextView)findViewById(R.id.timerView);
-        countDown = new CountDown(timerView, 0, 300);
     }
 
     public void onStart(View view) {
-        countDown.start();
+        if (_start == false) {
+            _start = true;
+            countDown = new CountDown(timerView, 3 * 1000, 300);
+            countDown.start();
+        }
     }
 
     public void onStop(View view) {
-        countDown.cancel();
+        countDown.onStop();
+        _start = false;
     }
 }
