@@ -5,4 +5,5 @@
     <string name="stopButton">ストップ</string>
     <string name="tenSeconds">10秒</string>
     <string name="oneSecond">1秒</string>
+    <string name="resetButton">リセット</string>
 </resources>

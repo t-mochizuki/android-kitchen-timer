@@ -43,6 +43,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void onReset(View view) {
+        if (_start == false) {
+            _millisInFuture = 0;
+            timerView.setText(_dataFormat.format(_millisInFuture));
+        }
+    }
+
     public void onTenSeconds(View view) {
         if (_start == false) {
             _millisInFuture += 10 * 1000;

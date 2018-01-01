@@ -61,4 +61,15 @@
         app:layout_constraintBottom_toTopOf="@+id/stopButton"
         app:layout_constraintStart_toEndOf="@+id/tenSeconds" />
 
+    <Button
+        android:id="@+id/resetButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="16dp"
+        android:onClick="onReset"
+        android:text="@string/resetButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/stopButton" />
+
 </android.support.constraint.ConstraintLayout>
