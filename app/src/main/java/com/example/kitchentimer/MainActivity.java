@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onStart(View view) {
+        if (_millisInFuture == 0) return;
+
         if (_start == false) {
             _start = true;
             countDown = new CountDown(timerView, _millisInFuture, 300);
