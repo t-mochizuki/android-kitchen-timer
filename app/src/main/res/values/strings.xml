@@ -2,4 +2,5 @@
     <string name="app_name">Kitchen Timer</string>
     <string name="timerView">タイマー</string>
     <string name="startButton">スタート</string>
+    <string name="stopButton">ストップ</string>
 </resources>

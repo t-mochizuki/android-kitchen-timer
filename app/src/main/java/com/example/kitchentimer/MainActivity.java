@@ -16,10 +16,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         timerView = (TextView)findViewById(R.id.timerView);
-        countDown = new CountDown(timerView, 3 * 60 * 1000, 300);
+        countDown = new CountDown(timerView, 0, 300);
     }
 
     public void onStart(View view) {
         countDown.start();
+    }
+
+    public void onStop(View view) {
+        countDown.cancel();
     }
 }
