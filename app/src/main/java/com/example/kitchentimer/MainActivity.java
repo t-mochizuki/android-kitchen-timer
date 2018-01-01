@@ -5,15 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import java.text.SimpleDateFormat;
-import java.util.Locale;
-
 public class MainActivity extends AppCompatActivity {
 
     private TextView timerView;
-
-    private SimpleDateFormat dataFormat =
-            new SimpleDateFormat("mm:ss.SSS", Locale.US);
+    private CountDown countDown;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,10 +16,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         timerView = (TextView)findViewById(R.id.timerView);
-        timerView.setText(dataFormat.format(0));
+        countDown = new CountDown(timerView, 3 * 60 * 1000, 300);
     }
 
     public void onStart(View view) {
-        timerView.setText("スタート");
+        countDown.start();
     }
 }
