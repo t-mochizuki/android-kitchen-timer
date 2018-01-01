@@ -8,14 +8,13 @@ import java.util.Locale;
 
 final class CountDown extends CountDownTimer {
 
-    private SimpleDateFormat _dataFormat;
+    private SimpleDateFormat _dataFormat = new SimpleDateFormat("mm:ss.SSS", Locale.US);
     private TextView _timer;
 
     CountDown(TextView timer, long millisInFuture, long countDownInterval) {
         super(millisInFuture, countDownInterval);
 
         _timer = timer;
-        _dataFormat = new SimpleDateFormat("mm:ss.SSS", Locale.US);
         _timer.setText(_dataFormat.format(millisInFuture));
     }
 
@@ -30,7 +29,7 @@ final class CountDown extends CountDownTimer {
 
     }
 
-    public void onStop() {
+    public void stop() {
         cancel();
         _timer.setText(_dataFormat.format(0));
     }

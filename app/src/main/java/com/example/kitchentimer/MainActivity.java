@@ -5,11 +5,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
 
     private TextView timerView;
     private CountDown countDown;
     private boolean _start = false;
+    private long _millisInFuture = 0;
+    private SimpleDateFormat _dataFormat = new SimpleDateFormat("mm:ss.SSS", Locale.US);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,18 +22,29 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         timerView = (TextView)findViewById(R.id.timerView);
+        timerView.setText(_dataFormat.format(_millisInFuture));
     }
 
     public void onStart(View view) {
         if (_start == false) {
             _start = true;
-            countDown = new CountDown(timerView, 3 * 1000, 300);
+            countDown = new CountDown(timerView, _millisInFuture, 300);
             countDown.start();
         }
     }
 
     public void onStop(View view) {
-        countDown.onStop();
-        _start = false;
+        if (_start == true) {
+            countDown.stop();
+            _millisInFuture = 0;
+            _start = false;
+        }
+    }
+
+    public void onTenSeconds(View view) {
+        if (_start == false) {
+            _millisInFuture += 10 * 1000;
+            timerView.setText(_dataFormat.format(_millisInFuture));
+        }
     }
 }
