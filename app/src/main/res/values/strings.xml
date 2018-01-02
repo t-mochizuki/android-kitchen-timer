@@ -6,4 +6,5 @@
     <string name="tenSeconds">10秒</string>
     <string name="oneSecond">1秒</string>
     <string name="resetButton">リセット</string>
+    <string name="tenMinutes">10分</string>
 </resources>

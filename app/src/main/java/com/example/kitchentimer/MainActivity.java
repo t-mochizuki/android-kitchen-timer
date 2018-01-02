@@ -63,4 +63,11 @@ public class MainActivity extends AppCompatActivity {
             timerView.setText(_dataFormat.format(_millisInFuture));
         }
     }
+
+    public void onTenMinutes(View view) {
+        if (_start == false) {
+            _millisInFuture += 10 * 60 * 1000;
+            timerView.setText(_dataFormat.format(_millisInFuture));
+        }
+    }
 }
