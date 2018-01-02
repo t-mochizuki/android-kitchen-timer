@@ -37,8 +37,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void onStop(View view) {
         if (_start == true) {
-            countDown.stop();
+            countDown.cancel();
             _millisInFuture = 0;
+            timerView.setText(_dataFormat.format(_millisInFuture));
             _start = false;
         }
     }
